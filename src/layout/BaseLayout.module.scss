@@ -1,0 +1,52 @@
+.baseLayout {
+  background: var(--body-bg);
+  min-height: 100vh;
+  .header {
+    background: var(--nav-bg);
+
+    .headerBox {
+      height: 70px;
+      width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+
+      .logo {
+        font-size: 36px;
+        background: linear-gradient(to left, #f902ff, #00dbde);
+        color: transparent;
+        -webkit-background-clip: text;
+      }
+
+      .navBox {
+        display: flex;
+        flex: 1;
+        margin-left: 150px;
+
+        .navItem {
+          color: #999;
+          line-height: 68px;
+          width: 80px;
+          display: block;
+          text-align: center;
+        }
+      }
+
+    }
+
+  }
+
+  .outlet {
+    width: 1200px;
+    margin: 0 auto;
+  }
+}
+
+.active {
+  color: #fff !important;
+  border-bottom: 2px solid #fff;
+}
+
+::-webkit-scrollbar{
+  width: 0px;
+}
