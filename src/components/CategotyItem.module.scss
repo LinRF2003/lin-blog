@@ -6,7 +6,6 @@
   padding: 10px;
 }
 .categoryItem{
-  background: var(--item-bg);
   width: 380px;
   display: flex;
   padding: 10px;
@@ -31,6 +30,7 @@
 }
 
 .categoryItem:hover{
+  box-shadow: 0 0 10px #ccc;
   .title{
     color: #62afff ;
   }

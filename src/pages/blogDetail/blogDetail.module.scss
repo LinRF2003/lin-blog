@@ -1,7 +1,7 @@
 .blogDetail {
   margin-top: 20px;
   padding: 20px;
-
+  background: var(--detail-bg);
   .top {
     text-align: center;
     font-weight: 700;
@@ -43,8 +43,8 @@ h1 {
   color: #27afb6!important;
 }
 
-p {
-  color: var(--desc-color);
+p,li {
+  color: var(--title-color);
 }
 
 table {
@@ -62,9 +62,20 @@ table {
 }
 
 pre {
-  background: #fafafa;
+  background: #282c34;
   margin-top: 10px;
   padding: 10px;
-  border: 1px solid #eee;
+  border-radius: 10px;
+  //border: 1px solid #eee;
   box-shadow: 0 0 3px #ccc;
+    white-space: pre-wrap;
+    word-wrap: break-word;
 }
+
+code{
+  color: #fff;
+  background: #282c34;
+  padding: 5px;
+}
+
+

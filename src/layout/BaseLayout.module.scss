@@ -1,6 +1,7 @@
 .baseLayout {
   background: var(--body-bg);
   min-height: 100vh;
+  //margin-bottom: -20px ;
   .header {
     background: var(--nav-bg);
 
@@ -47,6 +48,6 @@
   border-bottom: 2px solid #fff;
 }
 
-::-webkit-scrollbar{
-  width: 0px;
-}
+//::-webkit-scrollbar{
+//  width: 0px;
+//}

@@ -8,11 +8,11 @@ a{
   text-decoration: none;
   color: #000;
 }
-//
-//html {
-//  overflow-y: scroll; // 页面不抖动但会在右边留位置
-//  scroll-behavior: smooth; // 页面增加平滑滚动，目录标题跳转有效
-//}
+
+html {
+  overflow-y: scroll; // 页面不抖动但会在右边留位置
+  scroll-behavior: smooth; // 页面增加平滑滚动，目录标题跳转有效
+}
 
 
 :root{
@@ -22,6 +22,7 @@ a{
   --border-color:#eee;
   --desc-color:#676767;
   --title-color:#000;
+  --detail-bg:#fff;
 }
 
 
@@ -29,6 +30,10 @@ a{
   border: 1px solid var(--border-color);
   border-radius: 10px;
   box-shadow: 0 0 8px rgba(0,0,0,.1);
+  background: var(--item-bg);
 }
 
+.outer-border:hover {
+  box-shadow: 0 0 10px #ddd;
+}
 

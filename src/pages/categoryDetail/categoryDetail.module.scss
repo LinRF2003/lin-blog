@@ -1,0 +1,39 @@
+.detail{
+
+  .cate{
+    display: flex;
+    align-items: center;
+    margin: 15px 0 40px;
+    padding: 10px;
+    img{
+      width: 150px;
+      height: 150px;
+      margin-right: 20px;
+    }
+    .r{
+      display: flex;
+      flex-direction: column;
+      height: 110px;
+      .name{
+        color: var(--title-color);
+        font-weight: 700;
+        font-size: 20px;
+      }
+      .desc{
+        flex:1;
+        color: var(--title-color);
+        display: flex;
+        align-items: center;
+      }
+      .count{
+        color: var(--desc-color);
+      }
+    }
+  }
+  .blogList{
+    padding-bottom: 20px;
+  }
+}
+.cate:hover{
+ box-shadow: 0 0 8px rgba(0,0,0,.1);
+}

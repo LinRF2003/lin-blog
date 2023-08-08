@@ -4,26 +4,26 @@ import {Outlet} from 'react-router-dom'
 import BlogItem from "../../components/BlogItem";
 
 const Blog = () => {
-    const [blogList,setBlogList] = useState("");
+    const [blogData,setBlogData] = useState("");
 
     // useEffect
     const getBlogList = async (pageNo = 1) => {
-        const result = await Request("/blog/get", {
+        const result = await Request("/lin/getBlog", {
             pageNo: pageNo
         });
-        setBlogList(result.data.list);
+        if(result.code === 200) {
+            setBlogData(result.data);
+        }
     }
     useEffect(() => {
         getBlogList();
     }, [])
 
     return (
-        <div>
-            {blogList && blogList.map((item) =>
+        <div style={{padding:"10px 0 30px"}}>
+            {blogData.list && blogData.list.length > 0 && blogData.list.map((item) =>
                 <BlogItem key={item.id} blogInfo={item}/>
             )}
-            <button onClick={()=>getBlogList(2)}>获取第二页数据</button>
-            <Outlet></Outlet>
         </div>
     );
 };

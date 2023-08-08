@@ -43,6 +43,7 @@ const BaseLayout = () => {
                 '--border-color':'#388de0',
                 '--desc-color':'#aaa',
                 '--title-color':'#fff',
+                 '--detail-bg':'#11365c',
             }
             setCurrentThemeColor('dark');
         }else{
@@ -53,6 +54,7 @@ const BaseLayout = () => {
                 '--border-color':'#eee',
                 '--desc-color':'#676767',
                 '--title-color':'#000',
+                '--detail-bg':'#fff',
             }
             setCurrentThemeColor('light')
         }

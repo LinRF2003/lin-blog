@@ -1,6 +1,7 @@
+.outerBox{
+  padding: 8px 0 ;
+}
 .blogItem {
-  background: var(--item-bg);
-  margin: 15px;
   padding: 20px;
   border-radius: 10px;
   box-shadow: 0 0 2px #ddd;
@@ -11,7 +12,7 @@
   .left {
     .cover {
       img {
-        width: 230px;
+        width: 180px;
         height: 150px;
         border-radius: 10px;
       }
@@ -66,9 +67,7 @@
 
 }
 
-.blogItem:hover {
-  box-shadow: 0 0 10px #ddd;
-}
+
 
 .blogItem:hover .right .title{
   color: #62afff !important;

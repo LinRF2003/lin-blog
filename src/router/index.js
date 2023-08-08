@@ -7,6 +7,7 @@ const Blog = lazy(() => import("../pages/blog/blog"));
 const UserCenter = lazy(() => import("../pages/user-center/userCenter"));
 const Category = lazy(() => import("../pages/category/category"));
 const BlogDetail = lazy(() => import("../pages/blogDetail/blogDetail"));
+const CategoryDetail = lazy(() => import("../pages/categoryDetail/categoryDetail"));
 const Login = lazy(() => import("../pages/login/login"));
 
 // 定义懒加载的外层组件
@@ -48,6 +49,10 @@ const routes = [
             {
                 path: "/blogDetail/:id",
                 element:loadingComponent(<BlogDetail/>)
+            },
+            {
+                path: "/category/:name",
+                element:loadingComponent(<CategoryDetail/>)
             },
         ]
     },
