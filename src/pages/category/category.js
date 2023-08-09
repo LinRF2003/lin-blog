@@ -1,22 +1,14 @@
-import React, {useEffect, useState} from 'react';
+// import React, {useEffect, useState} from 'react';
 import CategoryItem from "../../components/CategoryItem";
 import CategoryClasses from "./category.module.scss"
-import Request from "../../utils/Request";
+// import Request from "../../utils/Request";
+import {useSelector} from "react-redux";
+
 
 const Category = () => {
-    const [categoryList, setCategoryList] = useState([]);
-    const getCategoryList = async () => {
-
-            let result = await Request("/lin/getCategory");
-            if (result.code === 200) {
-                setCategoryList(result.categoryList)
-            }
-
-    }
-    useEffect(() => {
-        getCategoryList();
-    }, [])
-
+    // 通过useSelector直接拿到store中定义的value
+    const categoryList = useSelector((store)=>store.index.categoryList);
+    console.log(categoryList)
 
     return (
         <div className={CategoryClasses.category}>

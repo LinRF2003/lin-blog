@@ -1,0 +1,17 @@
+
+.item {
+  color: var(--desc-color);
+  padding: 5px;
+  display: flex;
+  justify-content: space-between;
+  font-size: 14px;
+  align-items: center;
+  .title{
+    word-break: break-all;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+  }
+}
+

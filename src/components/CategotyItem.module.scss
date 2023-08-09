@@ -16,10 +16,12 @@
     height: 120px;
   }
   .right{
+    padding: 6px 0;
     display: flex;
     flex-flow: column;
     justify-content: space-between;
     color: var(--desc-color);
+
     font-size: 14px;
     .title{
       font-size: 18px;

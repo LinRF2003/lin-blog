@@ -14,7 +14,7 @@ const CategoryItem = (props) => {
                 <div className={CategoryItemClasses.right}>
                     <div className={CategoryItemClasses.title}>{categoryInfo.name}</div>
                     <div>{categoryInfo.desc}</div>
-                    <div>文章数：6</div>
+                    <div>文章数： {categoryInfo.count}</div>
                 </div>
             </div>
         </Link>
