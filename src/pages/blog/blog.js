@@ -1,10 +1,10 @@
 import React, {useEffect, useRef, useState} from 'react';
 import Request from "../../utils/Request";
 import BlogItem from "../../components/blogItem/BlogItem";
-import Rank from "../../components/Rank";
-import CategoryListBox from "../../components/CategoryListBox";
+import Rank from "../../components/rank/Rank";
+import CategoryListBox from "../../components/categoryListBox/CategoryListBox";
 import BlogClasses from './blog.module.scss'
-import RightBox from "../../components/RightBox";
+import RightBox from "../../components/rightBox/RightBox";
 
 const Blog = () => {
     const [blogData, setBlogData] = useState("");

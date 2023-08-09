@@ -1,6 +1,6 @@
 import React from 'react';
 import CategoryItemClasses from "./CategotyItem.module.scss"
-import {BASEIMGURL} from "../utils/config";
+import {BASEIMGURL} from "../../utils/config";
 import {Link} from "react-router-dom";
 
 const CategoryItem = (props) => {

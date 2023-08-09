@@ -1,8 +1,8 @@
 import React, {useEffect, useState} from 'react';
 import RankClasses from "./Rank.module.scss"
-import Request from "../utils/Request";
+import Request from "../../utils/Request";
 import {Link} from "react-router-dom";
-import SmallBox from "./SmallBox";
+import SmallBox from "../smallBox/SmallBox";
 
 const Rank = (props) => {
     const [hotBlogList,setHotBlogList] = useState([]);

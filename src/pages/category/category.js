@@ -1,5 +1,5 @@
 // import React, {useEffect, useState} from 'react';
-import CategoryItem from "../../components/CategoryItem";
+import CategoryItem from "../../components/categoryItem/CategoryItem";
 import CategoryClasses from "./category.module.scss"
 // import Request from "../../utils/Request";
 import {useSelector} from "react-redux";

@@ -4,9 +4,9 @@ import Request from "../../utils/Request";
 import BlogItem from "../../components/blogItem/BlogItem";
 import CategoryDetailClasses from "./categoryDetail.module.scss"
 import {BASEIMGURL} from "../../utils/config";
-import RightBox from "../../components/RightBox";
-import Rank from "../../components/Rank";
-import CategoryListBox from "../../components/CategoryListBox";
+import RightBox from "../../components/rightBox/RightBox";
+import Rank from "../../components/rank/Rank";
+import CategoryListBox from "../../components/categoryListBox/CategoryListBox";
 
 const CategoryDetail = (props) => {
     const {name} = useParams();

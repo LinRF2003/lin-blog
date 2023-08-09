@@ -1,8 +1,8 @@
 import React from 'react';
 import {useSelector} from "react-redux";
 import CategoryListBoxClasses from './CategoryListBox.module.scss'
-import SmallBox from "./SmallBox";
-import {BASEIMGURL} from "../utils/config";
+import SmallBox from "../smallBox/SmallBox";
+import {BASEIMGURL} from "../../utils/config";
 import {Link} from "react-router-dom";
 
 const CategoryListBox = (props) => {
