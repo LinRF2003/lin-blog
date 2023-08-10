@@ -40,8 +40,8 @@ const BaseLayout = () => {
                 '--item-bg':'#1b3651',
                 '--border-color':'#388de0',
                  // '--desc-color':'#aaa',
-                 '--desc-color':'#b8b8b8',
-                '--title-color':'#fff',
+                 '--desc-color':'#7b88a9',
+                 '--title-color':'#fff',
                  '--detail-bg':'#11365c',
             }
             setCurrentThemeColor('dark');

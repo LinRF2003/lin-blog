@@ -11,9 +11,8 @@ a {
 
 html {
   overflow-y: scroll; // 页面不抖动但会在右边留位置
-  scroll-behavior: smooth; // 页面增加平滑滚动，目录标题跳转有效
-}
 
+}
 
 :root {
   --nav-bg: #222;
@@ -26,6 +25,7 @@ html {
   --body-width: 1200px;
   --left-width: 840px;
   --right-width: 350px;
+  --title-bc: #62afff; // 蓝色字体
 }
 
 
@@ -37,7 +37,7 @@ html {
 }
 
 .outer-border:hover {
-  box-shadow: 0 0 10px #ddd;
+  box-shadow: 0 0 10px #bbb;
 }
 
 .ct {
@@ -63,4 +63,30 @@ html {
 
 .mt16 {
   margin-top: 16px;
+}
+
+
+.ant-pagination-item a {
+  border-radius: 6px;
+  background-color: #fff;
+  //border-color: #1677ff!important;
+}
+
+
+.ant-pagination-item a {
+  border-radius: 6px;
+  background-color: #fff;
+  //border-color: #1677ff!important;
+}
+
+
+.ant-pagination-item a:hover {
+  background: #f0f0f0;
+}
+
+
+.ant-float-btn {
+  //position: fie;
+  bottom: 100px;
+  right: 250px;
 }

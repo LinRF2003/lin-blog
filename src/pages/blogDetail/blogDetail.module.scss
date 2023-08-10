@@ -1,50 +1,58 @@
 .blogDetail {
   margin-top: 20px;
-  padding: 20px;
-  background: var(--detail-bg);
-  .top {
-    text-align: center;
-    font-weight: 700;
-    padding-bottom: 40px;
 
-    .title {
-      color: var(--title-color);
-      font-size: 24px;
-      padding-bottom: 10px;
-    }
+  display: flex;
 
-    .info {
-      display: flex;
-      justify-content: center;
-      color: var(--desc-color);
+  .left {
+    padding: 20px;
+    margin-right: 10px;
+    width: var(--left-width);
+    background: var(--detail-bg);
 
-      .commentCount {
-        padding: 0 10px;
+    .top {
+      text-align: center;
+      font-weight: 700;
+      padding-bottom: 40px;
+
+      .title {
+        color: var(--title-color);
+        font-size: 24px;
+        padding-bottom: 10px;
       }
 
+      .info {
+        display: flex;
+        justify-content: center;
+        color: var(--desc-color);
+
+        .commentCount {
+          padding: 0 10px;
+        }
+
+      }
+    }
+
+    .content {
+      padding: 0 30px;
+      line-height: 36px;
+      color: var(--desc-color);
     }
 
   }
 
-  .content {
-    padding: 0 30px;
-    line-height: 36px;
-    color: var(--desc-color);
-  }
 }
 
-
-h1, h2, h3 {
+h1, h2, h3, h4, h5, h6 {
   color: var(--title-color) !important;
   line-height: 50px;
 }
 
 h1 {
-  color: #27afb6!important;
+  color: #27afb6 !important;
 }
 
-p,li {
-  color: var(--title-color);
+p, li {
+  color: var(--desc-color);
 }
 
 table {
@@ -68,11 +76,11 @@ pre {
   border-radius: 10px;
   //border: 1px solid #eee;
   box-shadow: 0 0 3px #ccc;
-    white-space: pre-wrap;
-    word-wrap: break-word;
+  white-space: pre-wrap;
+  word-wrap: break-word;
 }
 
-code{
+code {
   color: #fff;
   background: #282c34;
   padding: 5px;

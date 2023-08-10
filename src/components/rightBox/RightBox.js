@@ -1,11 +1,15 @@
-import React from 'react';
+import React, {useRef} from 'react';
 import {useEffect, useState} from "react";
 
 const RightBox = (props) => {
     const [isFixed, setIsFixed] = useState(false);
+    const ref = useRef();
     useEffect(() => {
         // 监听滚动的函数
         const scrollHandler = (e) => {
+            if (ref.current.clientHeight > window.innerHeight) {
+               return  window.removeEventListener("scroll", scrollHandler)
+            }
             if (document.documentElement.scrollTop > 70) {
                 setIsFixed(true)
             } else {
@@ -21,7 +25,7 @@ const RightBox = (props) => {
     }, []);
     return (
         <div>
-            <div style={isFixed ? {
+            <div ref={ref} style={isFixed ? {
                 width: "350px",
                 flex: "1",
                 position: "fixed",

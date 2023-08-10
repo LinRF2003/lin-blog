@@ -1,0 +1,19 @@
+.arrow{
+  color: #000;
+  background: #fff;
+  margin: 1px;
+  height: 30px;
+  width: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 6px;
+}
+
+.arrow:hover{
+  background: #f0f0f0;
+}
+
+.disabled {
+  color:#ccc!important;
+}

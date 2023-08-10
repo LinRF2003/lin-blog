@@ -1,42 +1,38 @@
-import React, {useEffect, useRef, useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import Request from "../../utils/Request";
 import BlogItem from "../../components/blogItem/BlogItem";
 import Rank from "../../components/rank/Rank";
 import CategoryListBox from "../../components/categoryListBox/CategoryListBox";
 import BlogClasses from './blog.module.scss'
 import RightBox from "../../components/rightBox/RightBox";
+import Introduce from "../../components/introduce/Introduce";
+import MyPagination from "../../components/myPagination/MyPagination";
 
 const Blog = () => {
-    const [blogData, setBlogData] = useState("");
-    const [isFixed, setIsFixed] = useState(false);
+    const defaultPageSize = 6;
 
-    // useEffect
+    const [blogData, setBlogData] = useState("");
+
     const getBlogList = async (pageNo = 1) => {
         const result = await Request("/lin/getBlog", {
-            pageNo: pageNo
+            pageNo: pageNo,
+            pageSize:defaultPageSize
         });
         if (result.code === 200) {
             setBlogData(result.data);
         }
     }
+    // 页码修改
+    const onChangePage= async (e)=> {
+        await getBlogList(e)
+
+    }
 
     useEffect(() => {
         getBlogList();
-        // 监听滚动的函数
-        const scrollHandler = (e) =>{
-            if(document.documentElement.scrollTop > 70){
-                setIsFixed(true)
-            }else{
-                setIsFixed(false)
-            }
-        }
-
-        window.addEventListener("scroll", scrollHandler)
-        return () => {
-            // 关闭监听函数
-            window.removeEventListener("scroll", scrollHandler)
-        }
     }, []);
+
+
 
     return (
         <div className={BlogClasses.blog}>
@@ -44,9 +40,14 @@ const Blog = () => {
                 {blogData?.list && blogData?.list.length > 0 && blogData?.list.map((item) =>
                     <BlogItem key={item.id} blogInfo={item}/>
                 )}
+                <MyPagination onChangePage={onChangePage} totalCount={blogData.totalCount} pageTotal={blogData.pageTotal} defaultPageSize={defaultPageSize}/>
+
             </div>
-            <RightBox>  <Rank/>
-                <CategoryListBox className={"mt16"}/></RightBox>
+            <RightBox>
+                <Rank/>
+                <CategoryListBox className={"mt16"}/>
+                <Introduce className={"mt16"}/>
+            </RightBox>
         </div>
     );
 };
