@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect, useRef, useState} from 'react';
 import {useParams} from "react-router-dom";
 import Request from "../../utils/Request";
 import BlogDetailClasses from "./blogDetail.module.scss"
@@ -16,6 +16,9 @@ const BlogDetail = () => {
     // 当前标题
     const [currentTitle, setCurrentTitle] = useState("");
     const [blogDetailInfo, setBlogDetailInfo] = useState("");
+
+    const blogDetailRef = useRef();
+
     // 获取博客详情
     const getBlogDetail = async () => {
         let result = await Request("/blog/getDetail", {
@@ -26,10 +29,11 @@ const BlogDetail = () => {
     // 获取博客详情
     useEffect(() => {
         getBlogDetail();
-    }, [])
+        // 切换文章时页面回到顶部
+        window.scrollTo(0,0);
+    }, [id])
 
     useEffect(() => {
-
         const tags = ["H1", "H2", "H3", "H4", "H5", "H6"];
         const content = document.querySelector("#content");
         const catalogCopy = [];
@@ -65,16 +69,20 @@ const BlogDetail = () => {
 
         // 监听页面滚动
         const scrollHandler = () => {
-            let innerText = catalogCopy[0].element.innerText;
-            catalogCopy.forEach(item => {
-                if (item.element.getBoundingClientRect().top < 20) {
-                    innerText = item.element.innerText;
-                } else {
-                    return;
-                }
-            })
-            console.log(innerText);
-            setCurrentTitle(innerText)
+            if(catalogCopy.length > 1) {
+                let innerText = catalogCopy[0].element.innerText;
+                catalogCopy.forEach(item => {
+                    if (item.element.getBoundingClientRect().top < 20) {
+                        innerText = item.element.innerText;
+                    } else {
+                        return;
+                    }
+                })
+                setCurrentTitle(innerText)
+            }else{
+                return;
+            }
+
         }
         window.addEventListener("scroll", scrollHandler)
         return () => {
@@ -84,7 +92,7 @@ const BlogDetail = () => {
     }, [blogDetailInfo])
 
     return (
-        <div className={`${BlogDetailClasses.blogDetail}`}>
+        <div className={`${BlogDetailClasses.blogDetail}`} ref={blogDetailRef}>
             <div className={`${BlogDetailClasses.left} outer-border`}>
                 <div className={BlogDetailClasses.top}>
                     <div className={BlogDetailClasses.title}>
@@ -104,7 +112,7 @@ const BlogDetail = () => {
             </div>
             <RightBox>
                 <Rank/>
-                <Catalog className={"mt16"} catalog={catalog} currentTitle={currentTitle} />
+                {catalog.length > 1 ? <Catalog className={"mt16"} catalog={catalog} currentTitle={currentTitle}/> : ""}
             </RightBox>
         </div>
     );

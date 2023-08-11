@@ -24,6 +24,11 @@ const Catalog = (props) => {
     }, [props.currentTitle, isClick])
 
     const onClick = (e) => {
+        const changeIsClick = () => {
+            setIsClick(false);
+        }
+        // 防止短时间内重复点击
+        clearTimeout(changeIsClick);
         setIsClick(true);
         for (const element of ref.current.children) {
             if (element.text === e.target.text) {
@@ -32,10 +37,9 @@ const Catalog = (props) => {
                 break;
             }
         }
+
         // 给滚动点时间，不然它有问题噢
-        setTimeout(() => {
-            setIsClick(false);
-        }, 1000)
+        setTimeout(changeIsClick, 1000)
     }
     // console.log(ref.current?.getBoundingClientRect().top)
     return (

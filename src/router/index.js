@@ -8,17 +8,36 @@ const UserCenter = lazy(() => import("../pages/user-center/userCenter"));
 const Category = lazy(() => import("../pages/category/category"));
 const BlogDetail = lazy(() => import("../pages/blogDetail/blogDetail"));
 const CategoryDetail = lazy(() => import("../pages/categoryDetail/categoryDetail"));
+const Search = lazy(() => import("../pages/search/search"));
 const Login = lazy(() => import("../pages/login/login"));
 
 // 定义懒加载的外层组件
 const loadingComponent = (compontent, needLogin = false) => (
     needLogin ?
         <AuthRouter>
-            <Suspense fallback={<div>Loading...</div>}>
+            <Suspense   fallback={
+                <div
+                    style={{
+                        textAlign: 'center',
+                        marginTop: 200
+                    }}
+                >
+                    loading...
+                </div>
+            }>
                 {compontent}
             </Suspense>
         </AuthRouter>
-        : <Suspense fallback={<div>Loading...</div>}>
+        : <Suspense   fallback={
+            <div
+                style={{
+                    textAlign: 'center',
+                    marginTop: 200
+                }}
+            >
+                loading...
+            </div>
+        }>
             {compontent}
         </Suspense>
 )
@@ -54,6 +73,10 @@ const routes = [
                 path: "/category/:name",
                 element:loadingComponent(<CategoryDetail/>)
             },
+            {
+                path: "/search",
+                element:loadingComponent(<Search/>)
+            }
         ]
     },
 

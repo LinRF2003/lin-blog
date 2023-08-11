@@ -22,7 +22,7 @@
       .navBox {
         display: flex;
         flex: 1;
-        margin-left: 150px;
+        margin-left: 80px;
 
         .navItem {
           color: #aaa;
@@ -31,8 +31,17 @@
           display: block;
           text-align: center;
         }
-      }
+        .project{
+          color: #aaa;
+          margin: 23px 0 0 20px;
+          height: 25px;
+        }
 
+      }
+      .searchInputBox{
+        min-width: 230px;
+        margin-left: 20px;
+      }
     }
 
   }
@@ -43,11 +52,20 @@
   }
 }
 
+
 .active {
   color: #fff !important;
   border-bottom: 2px solid #fff;
 }
 
+
+.divider{
+  width: 1px;
+  background: #fff;
+  height: 16px;
+  margin-top: 27px;
+  margin-left: 16px;
+}
 //::-webkit-scrollbar{
 //  width: 0px;
 //}

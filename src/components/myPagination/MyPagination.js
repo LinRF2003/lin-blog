@@ -14,11 +14,13 @@ const MyPagination = (props) => {
         props.onChangePage(e)
         setCurrentPage(e)
     }
+    useEffect(()=>{
+        props.currentPage && setCurrentPage(props.currentPage);
+    },[])
     useEffect(() => {
         if (currentPage === 1) {
             setIsFirstPage(true);
             setIsLastPage(false);
-            return;
         } else if (currentPage === props.pageTotal) {
             setIsFirstPage(false);
             setIsLastPage(true);
@@ -26,7 +28,7 @@ const MyPagination = (props) => {
             setIsFirstPage(false);
             setIsLastPage(false);
         }
-    }, [currentPage])
+    }, [currentPage,props.pageTotal])
     // 修改上下页的 样式
     const itemRender = (_, type, originalElement) => {
         if (type === 'prev') {
