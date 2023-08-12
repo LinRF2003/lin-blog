@@ -59,8 +59,11 @@
       .r {
         display: flex;
 
-        .commentCount {
-          padding: 0 20px;
+        //.commentCount {
+        //  padding: 0 20px;
+        //}
+        .views{
+          padding-left: 20px;
         }
       }
     }

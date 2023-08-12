@@ -11,14 +11,36 @@ a {
 
 html {
   overflow-y: scroll; // 页面不抖动但会在右边留位置
+  //scroll-behavior: smooth;
+}
 
+::-webkit-scrollbar{
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: rgb(239, 239, 239);
+  border-radius: 2px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #bfbfbf;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #bfbfbf;
+}
+
+::-webkit-scrollbar-corner {
+  background: #bfbfbf;
 }
 
 :root {
   --nav-bg: #222;
   --body-bg: #f5f7fa;
   --item-bg: #fff;
-  --border-color: #eee;
+  --border-color: #ddd;
   --desc-color: #676767;
   --title-color: #000;
   --detail-bg: #fff;

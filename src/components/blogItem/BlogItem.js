@@ -1,6 +1,8 @@
 import React from 'react';
 import BlogItemClasses from "./BlogItem.module.scss"
-import {Link} from "react-router-dom";
+import {Link, useNavigate} from "react-router-dom";
+import {EyeOutlined} from "@ant-design/icons";
+import Request from "../../utils/Request";
 
 const BlogItem = (props) => {
     const {blogInfo} = props;
@@ -12,10 +14,18 @@ const BlogItem = (props) => {
         tagsString+=`${item} | `;
     })
 
-    console.log(props)
+    const navigate = useNavigate();
+
+    // 点击博客方法
+    const clickBlog = () => {
+        navigate(`/blogDetail/${blogInfo.id}`);
+        // 增加阅读量
+        Request("/blog/addViews",{id:blogInfo.id})
+    }
+
     return (
         <div className={BlogItemClasses.outerBox}>
-            <Link className={`${BlogItemClasses.blogItem} outer-border`} to={`/blogDetail/${blogInfo.id}`}>
+            <div className={`${BlogItemClasses.blogItem} outer-border`} onClick={clickBlog}>
                 <div className={BlogItemClasses.left}>
                     <div className={BlogItemClasses.cover}>
                         <img src={blogInfo.cover} alt=""/>
@@ -34,17 +44,17 @@ const BlogItem = (props) => {
                             <div className={BlogItemClasses.time}>
                                 {blogInfo.createTime}
                             </div>
-                            <div className={BlogItemClasses.commentCount}>
-                                {blogInfo.commentCount}
-                            </div>
+                            {/*<div className={BlogItemClasses.commentCount}>*/}
+                            {/*    {blogInfo.commentCount}*/}
+                            {/*</div>*/}
                             <div className={BlogItemClasses.views}>
-                                {blogInfo.views}
+                                <EyeOutlined /> {blogInfo.views}
                             </div>
 
                         </div>
                     </div>
                 </div>
-            </Link>
+            </div>
         </div>
     );
 };

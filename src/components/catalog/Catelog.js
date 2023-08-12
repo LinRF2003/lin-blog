@@ -24,8 +24,12 @@ const Catalog = (props) => {
     }, [props.currentTitle, isClick])
 
     const onClick = (e) => {
+
+        document.querySelector("html").style.scrollBehavior = 'smooth'
+        //scroll-behavior: smooth;
         const changeIsClick = () => {
             setIsClick(false);
+            document.querySelector("html").style.scrollBehavior = 'auto'
         }
         // 防止短时间内重复点击
         clearTimeout(changeIsClick);
@@ -33,13 +37,13 @@ const Catalog = (props) => {
         for (const element of ref.current.children) {
             if (element.text === e.target.text) {
                 ref.current.scrollTop = element.offsetTop - ref.current.offsetTop;
-
                 break;
             }
         }
 
         // 给滚动点时间，不然它有问题噢
-        setTimeout(changeIsClick, 1000)
+        setTimeout(changeIsClick, 1000);
+
     }
     // console.log(ref.current?.getBoundingClientRect().top)
     return (
